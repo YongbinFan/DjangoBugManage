@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "app01.apps.App01Config"
 ]
 
 MIDDLEWARE = [
@@ -112,12 +113,13 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # for twilio sms
-TWILIO_ACCOUNT_SID= "local_settings"
-TWILIO_AUTH_TOKEN= "local_settings"
+TWILIO_ACCOUNT_SID = "local_settings"
+TWILIO_AUTH_TOKEN = "local_settings"
 
+# for redis
+REDIS_PASSWORD = "local_settings"
 
 try:
     from .local_settings import *
 except ImportError:
     pass
-

@@ -1,0 +1,33 @@
+{% extends "layout/basic.html" %}
+{% load static %}
+{% block title %}Register{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="account">
+        <h1 style="text-align: center">Register</h1>
+
+        {% for field in form %}
+            {% if field.name == "code" %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    <div class="clearfix">
+                        <div class="col-md-6 pd-left" style="padding-left: 0">{{ field }}</div>
+                        <div class="col-md-6"><input type="button" value="Get Code" class="btn btn-default"></div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endif %}
+
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+
+{% endblock %}
